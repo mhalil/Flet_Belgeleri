@@ -2,11 +2,7 @@
 
 Flet, front-end geliştirme deneyimi olmadan en sevdiğiniz dilde etkileşimli çok kullanıcılı web, masaüstü ve mobil uygulamalar oluşturmaya izin veren bir çerçevedir.  
 
-
-
 Google'ın Flutter'ını temel alan Flet denetimleriyle programınız için bir kullanıcı arabirimi oluşturursunuz. Flet, Flutter widget'larını yalnızca "sarmalamakla" kalmaz, aynı zamanda daha küçük widget'ları birleştirerek, karmaşıklıkları gizleyerek, UI (kullanıcı arabirimi) en iyi uygulamalarını uygulayarak, makul varsayılanları uygulayarak kendi "görüşünü" ekler, tüm bunlar, uygulamalarınızın fazladan çaba harcamadan havalı ve profesyonel görünmesini sağlar.
-
-
 
 ## Flet uygulaması örneği
 
@@ -59,17 +55,17 @@ python counter.py
 
 Uygulama, yerel bir işletim sistemi penceresinde başlatılacak. Electron'a ne güzel bir alternatif!
 
-
-
-macOS
+**macOS**
 
 ![macos](https://flet.dev/img/docs/getting-started/flet-counter-macos.png)
 
-Windows
+**Windows**
 
-![](https://flet.dev/img/docs/getting-started/flet-counter-windows.png)
+![windows](https://flet.dev/img/docs/getting-started/flet-counter-windows.png)
 
-Eğer uygulamayı bir **web uygulaması** olarak çalıştırmak istiyorsanız, son satırı şu şekilde değiştirin:
+**Linux**
+
+![linux_flet_ui](img/linux_flet_ui.png)
 
 ```python
 ft.app(target=main, view=ft.WEB_BROWSER)

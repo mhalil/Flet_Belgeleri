@@ -90,6 +90,125 @@ ft.app(target=main, view=ft.WEB_BROWSER)
 > 
 > Flet uygulamanızın web sürümünü görmek için tarayıcınızda `http://localhost:<port>` öğesini açın.
 
-
-
 # Kontroller
+
+Kullanıcı arayüzü, **Kontrollerden (Controls)** (widget olarak da bilinir) yapılmıştır. 
+Kontrollerin bir kullanıcı tarafından görülebilmesi için bir `Sayfaya (Page)` veya diğer kontrollerin içine eklenmesi gerekir. Page (Sayfa), en üstteki denetimdir. İç içe geçmiş denetimler, kök olarak Page (Sayfa) ile bir ağaç yapısı olarak temsil edilebilir.
+
+Kontroller, temelde normal Python sınıflarıdır. Özellikleriyle eşleşen parametreleri kullanarak, yapıcılar (constructors) aracılığıyla kontrol örnekleri oluşturulur. örneğin:
+
+```python
+t = ft.Text(value="Hello, world!", color="green")
+```
+
+Bir sayfada kontrolü görüntülemek istiyorsanız, o kontrolü sayfanın `kontroller (controls)` listesine eklemeli ve sayfa değişikliklerini bir tarayıcıya veya masaüstü istemcisine göndermek / güncellemek için `page.update()` öğesini çağırmalısınız:
+
+```python
+import flet as ft
+
+def main(page: ft.Page):    
+    t = ft.Text(value="Hello, world!", color="green")    
+    page.controls.append(t)    
+    page.update()
+
+ft.app(target=main)
+```
+
+![](https://flet.dev/img/docs/getting-started/controls-text.png)
+
+> **NOT**:
+> 
+> Aşağıdaki örneklerde sadece ana fonksiyonun içeriğini göstereceğiz.
+
+Kontrol özelliklerini değiştirebilirsiniz ancak yaptığınız değişiklikler kullanıcı arayüzünde bir sonraki `page.update():` komutu ile güncellenecektir. 
+
+```python
+t = ft.Text()
+page.add(t) # it's a shortcut for page.controls.append(t) and then page.update()
+
+for i in range(10):
+    t.value = f"Step {i}"
+    page.update()
+    time.sleep(1)
+```
+
+Bazı kontroller, diğer kontrolleri içerebilen "kapsayıcı (container)" kontrollerdir ( Page (Sayfa) gibi ). Örneğin, `Row (Satır)` kontrolü, diğer kontrollerin bir satırda tek tek düzenlenmesine izin verir:
+
+```python
+page.add(
+    ft.Row(controls=[
+        ft.Text("A"),
+        ft.Text("B"),
+        ft.Text("C")
+    ])
+)
+```
+
+![row](img/row_1.png)
+
+veya `TextField` (metin alanı) ve yanında `ElevatedButton` (Yükseltilmiş Düğme):
+
+```python
+page.add(
+    ft.Row(controls=[
+        ft.TextField(label="Your name"),
+        ft.ElevatedButton(text="Say my name!")
+    ])
+)
+```
+
+![row_2](img/row_2.png)
+
+`page.update()` yalnız son çağrısından bu yana yapılan değişiklikleri güncelleyecek 
+kadar akıllıdır. Bir sayfaya birkaç yeni kontrol ekleyebilir, bazılarını kaldırabilir, diğer kontrollerin özelliklerini değiştirebilirsiniz ancak bu değişikliklerin  topluca güncellenmesi için `page.update()`'i çağırabilirsiniz. , örneğin:
+
+```python
+for i in range(10):
+    page.controls.append(ft.Text(f"Line {i}"))
+    if i > 4:
+        page.controls.pop(0)
+    page.update()
+    time.sleep(0.3)
+```
+
+Düğmeler (Butonlar) gibi bazı kontroller (denetimler), bir kullanıcı girişine tepki veren olay işleyicilere sahip olabilir, örneğin `ElevatedButton.on_click:` (butona tıklamak gibi)
+
+```python
+def button_clicked(e):
+    page.add(ft.Text("Clicked!"))
+
+page.add(ft.ElevatedButton(text="Click me", on_click=button_clicked))
+```
+
+ve basit bir Yapılacaklar Lisesi (To-Do) için daha gelişmiş bir örnek:
+
+```python
+import flet as ft
+
+def main(page):
+    def add_clicked(e):
+        page.add(ft.Checkbox(label=new_task.value))
+        new_task.value = ""
+        new_task.focus()
+        new_task.update()
+
+    new_task = ft.TextField(hint_text="Whats needs to be done?", width=300)
+    page.add(ft.Row([new_task, ft.ElevatedButton("Add", on_click=add_clicked)]))
+
+ft.app(target=main)
+```
+
+![to-do](https://flet.dev/img/docs/getting-started/simple-ToDo.png)
+
+> **NOT**:
+> **Flet**, kullanıcı arayüzünü durum bilgisi olan kontrollerle "manuel" oluşturduğunuz ve ardından kontrol özelliklerini güncelleyerek değişikliğe uğrattığınız zorunlu kullanıcı arayüzü modelini uygular. **Flutter**, kullanıcı arayüzünün uygulama verisi değişikliklerine göre **otomatik olarak*** yeniden oluşturulduğu bildirime dayalı modeli uygular. Modern front-end uygulamalarında, uygulama durumunu yönetmek, doğası gereği karmaşık bir görevdir ve Flet'in "**eski usul**" yaklaşımı, front-end deneyimi olmayan programcılar için daha çekici olabilir.
+
+
+
+### visible (görünürlük) özelliği;
+
+Her kontrolün (denetimin), Sayfa (Page) oluşturulurken, varsayılan değeri `true (doğru)` olan `visible (görünür)` özelliği vardır. `visible (görünür)` değerini `false (yanlış / hayır)` olarak ayarlamak, kontrolün (ve varsa tüm alt öğelerinin) bir sayfa tuvalinde oluşturulmasını tamamen engeller. Gizli kontrollere klavye veya fare ile odaklanılamaz veya seçilemez ve herhangi bir olay (event) belirtemez.
+
+
+
+### disabled (devre dışı / engelli) özelliği;
