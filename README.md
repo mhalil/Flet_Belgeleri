@@ -12,11 +12,11 @@ Python'da Flutter uygulamaları oluşturmanın en hızlı yolu Flet kütüphanes
 
 # Bölümler
 
-1. [Temel Özellikler](1_temel_ozellikler.md)
+1. [Temel Özellikler](01_temel_ozellikler.md)
 
-2. [Giriş / Takdim](2_giris.md)
+2. [Giriş / Takdim](02_giris.md)
 
-3. [Python Rehberi](3_python_rehberi.md)
+3. [Python Rehberi](03_python_rehberi.md)
 
 4. [Kullanıcı Girdisi](04_kullanici_girdisi.md)
 
