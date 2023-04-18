@@ -67,7 +67,7 @@ ft.app(target=main)
 
 > **NOT:**
 > 
-> Bu kılavuzda daha sonra yeniden kullanılabilir **kontrollerle** uygulama yapısına gerçek dünya yaklaşımları yönünden bakacağımız için bu bölüm kasıtlı olarak "**temel**" olarak adlandırılmıştır.
+> Bu kılavuzda daha sonra yeniden kullanılabilir **kontrollerle** uygulama yapısına gerçek dünya yaklaşımları yönünden bakacağımız için bu bölüm kasıtlı olarak **temel** olarak adlandırılmıştır.
 
 Tipik bir Flet programı, uygulamanın yeni kullanıcı oturumlarını beklemeye başladığı `flet.app()` çağrısıyla sona erer. `main()` fonksiyonu, bir Flet uygulamasındaki giriş noktasıdır. `Page (Sayfa)` örneğinin aktarıldığı her kullanıcı oturumu için yeni bir iş parçacığı çağrılıyor. Flet uygulamasını tarayıcıda çalıştırırken, açılan her sekme veya sayfa için yeni bir kullanıcı oturumu başlatılır. Bir masaüstü uygulaması olarak çalışırken oluşturulan yalnızca bir oturum vardır.
 
@@ -118,7 +118,7 @@ ft.app(target=main)
 
 > **NOT**:
 > 
-> Aşağıdaki örneklerde sadece ana fonksiyonun içeriğini göstereceğiz.
+> Aşağıdaki örneklerde sadece ana (main) fonksiyonun içeriğini göstereceğiz.
 
 Kontrol özelliklerini değiştirebilirsiniz ancak yaptığınız değişiklikler kullanıcı arayüzünde bir sonraki `page.update():` komutu ile güncellenecektir. 
 
@@ -201,14 +201,148 @@ ft.app(target=main)
 ![to-do](https://flet.dev/img/docs/getting-started/simple-ToDo.png)
 
 > **NOT**:
-> **Flet**, kullanıcı arayüzünü durum bilgisi olan kontrollerle "manuel" oluşturduğunuz ve ardından kontrol özelliklerini güncelleyerek değişikliğe uğrattığınız zorunlu kullanıcı arayüzü modelini uygular. **Flutter**, kullanıcı arayüzünün uygulama verisi değişikliklerine göre **otomatik olarak*** yeniden oluşturulduğu bildirime dayalı modeli uygular. Modern front-end uygulamalarında, uygulama durumunu yönetmek, doğası gereği karmaşık bir görevdir ve Flet'in "**eski usul**" yaklaşımı, front-end deneyimi olmayan programcılar için daha çekici olabilir.
-
-
+> **Flet**, kullanıcı arayüzünü durum bilgisi olan kontrollerle "manuel" oluşturduğunuz ve ardından kontrol özelliklerini güncelleyerek değişikliğe uğrattığınız zorunlu kullanıcı arayüzü modelini uygular. **Flutter**, kullanıcı arayüzünün uygulama verisi değişikliklerine göre **otomatik olarak** yeniden oluşturulduğu bildirime dayalı modeli uygular. Modern front-end uygulamalarında, uygulama durumunu yönetmek, doğası gereği karmaşık bir görevdir ve Flet'in "**eski usul**" yaklaşımı, front-end deneyimi olmayan programcılar için daha çekici olabilir.
 
 ### visible (görünürlük) özelliği;
 
 Her kontrolün (denetimin), Sayfa (Page) oluşturulurken, varsayılan değeri `true (doğru)` olan `visible (görünür)` özelliği vardır. `visible (görünür)` değerini `false (yanlış / hayır)` olarak ayarlamak, kontrolün (ve varsa tüm alt öğelerinin) bir sayfa tuvalinde oluşturulmasını tamamen engeller. Gizli kontrollere klavye veya fare ile odaklanılamaz veya seçilemez ve herhangi bir olay (event) belirtemez.
 
-
-
 ### disabled (devre dışı / engelli) özelliği;
+
+Her kontrol (denetim), varsayılan olarak `false (yanlış)` değerini barındıran `disabled (devre dışı)` özelliğine sahiptir. Yani kontrol (denetim) ve tüm alt öğeleri etkindir. `disabled` özelliği çoğunlukla `TextField`, `Dropdown`, `Checkbox` ve butonlar gibi veri giriş kontrolleri ile kullanılır. Bununla birlikte, bir üst denetim (Parent Control) `disabled (devre dışı)` olarak ayarlanabilir ve değeri, yinelemeli olarak tüm çocuklara yayılır.
+
+Örneğin, çoklu giriş kontrolüne sahip bir formunuz varsa, her kontrol için `disabled (devre dışı)` bırakılan özelliği ayrı ayrı ayarlayabilirsiniz:
+
+```python
+first_name = ft.TextField()
+last_name = ft.TextField()
+first_name.disabled = True
+last_name.disabled = True
+page.add(first_name, last_name)
+```
+
+veya form kontrollerini bir **kapsayıcı (container)** içerisine koyabilirsiniz, ör.kontrolleri `Column (Sütun)` içerisine koyun ve ardından `Column (sütun)`'un  `disabled (devre dışı)` özelliğinini `True (Doğru/Aktif)` olarak ayarlayın:
+
+```python
+first_name = ft.TextField()
+last_name = ft.TextField()
+c = ft.Column(controls=[
+    first_name,
+    last_name
+])
+c.disabled = True
+page.add(c)
+```
+
+# Kontrol Referansları
+
+Flet kontrolleri nesnelerdir ve özelliklerine erişmek için bu nesnelere, referanslar (değişkenler) tutmamız gerekir.
+
+Aşağıdaki örneği göz önünde bulundurun:
+
+```python
+import flet as ft
+
+def main(page):
+
+    first_name = ft.TextField(label="First name", autofocus=True)
+    last_name = ft.TextField(label="Last name")
+    greetings = ft.Column()
+
+    def btn_click(e):
+        greetings.controls.append(ft.Text(f"Hello, {first_name.value} {last_name.value}!"))
+        first_name.value = ""
+        last_name.value = ""
+        page.update()
+        first_name.focus()
+
+    page.add(
+        first_name,
+        last_name,
+        ft.ElevatedButton("Say hello!", on_click=btn_click),
+        greetings,
+    )
+
+ft.app(target=main)
+```
+
+![](https://flet.dev/img/docs/getting-started/control-refs.png)
+
+`main()` metodunun en başında, butonun `on_click` fonksiyonunda (işleyicisinde) kullanacağımız üç adet kontrol oluşturuyoruz. Bunlar ad (first name) ve soyad (lastname) için iki `TextField` kontrolü ile karşılama (greetings) mesajı için bir `Column (Sütun)` konteyneridir (container). Kontrolleri, tüm özellikleri ayarlanmış olarak oluşturuyoruz ve `main()` metodunun sonunda `page.add()` çağrısında bunların referanslarını kullanıyoruz.
+
+Giderek daha fazla denetim ve olay işleyicisi eklendiğinde, tüm denetim tanımlarını tek bir yerde tutmak zorlaşır, bu nedenle `ana gövdeye (main)` dağılırlar. `page.add()` parametrelerine baktığınızda (IDE'deki değişken tanımlarına sürekli atlamadan) son formun nasıl görüneceğini hayal etmek zordur:
+
+```python
+    page.add(
+        first_name,
+        last_name,
+        ft.ElevatedButton("Say hello!", on_click=btn_click),
+        greetings,
+    )
+```
+
+`first_name` bir `TextField` mı, otomatik odaklanma ayarı var mı? Selamlaşma (greetings), Satır mı (`Row`) yoksa Sütun mu (`Column`)?
+
+**Flet**, kontrole bir referans tanımlamaya, bu referansı olay işleyicilerinde kullanmaya ve daha sonra bir ağaç (yapısı) oluştururken referansı gerçek bir kontrole ayarlamaya izin veren `Ref` yardımcı program sınıfı sağlar. Fikir [React](https://reactjs.org/docs/refs-and-the-dom.html)'tan geliyor.
+
+Yeni bir yazılı kontrol referansı tanımlamak için:
+
+```python
+first_name = ft.Ref[ft.TextField]()
+```
+
+Referanslı kontrole (kontrol referansı) erişmek için `Ref.current` özelliğini kullanın:
+
+```python
+# empty first name
+first_name.current.value = ""
+```
+
+Bir referansa kontrol atamak için `Control.ref` özelliğini bir referans olarak ayarlayın:
+
+```python
+page.add(
+    ft.TextField(ref=first_name, label="First name", autofocus=True)
+)
+```
+
+> **NOT**:
+> 
+> Tüm Flet kontrolleri `ref` özelliğine sahiptir.
+
+Referansları kullanmak için programımızı yeniden yazabiliriz:
+
+```python
+import flet as ft
+
+
+def main(page):
+
+    first_name = ft.Ref[ft.TextField]()
+    last_name = ft.Ref[ft.TextField]()
+    greetings = ft.Ref[ft.Column]()
+
+    def btn_click(e):
+        greetings.current.controls.append(
+            ft.Text(f"Hello, {first_name.current.value} {last_name.current.value}!")
+        )
+        first_name.current.value = ""
+        last_name.current.value = ""
+        page.update()
+        first_name.current.focus()
+
+    page.add(
+        ft.TextField(ref=first_name, label="First name", autofocus=True),
+        ft.TextField(ref=last_name, label="Last name"),
+        ft.ElevatedButton("Say hello!", on_click=btn_click),
+        ft.Column(ref=greetings),
+    )
+
+ft.app(target=main)
+```
+
+![](https://flet.dev/img/docs/getting-started/control-refs-rewritten.png)
+
+Artık `page.add()` içinde sayfanın yapısını ve oluşturduğu tüm kontrolleri açıkça görebiliriz.
+
+Evet, referansın (ref'in) kontrolüne erişmek için `.current.` eklemeniz gerektiğinden mantık biraz daha ayrıntılı hale geliyor, ancak bu kişisel tercih meselesi :)

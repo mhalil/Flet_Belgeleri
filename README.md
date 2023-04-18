@@ -17,3 +17,7 @@ Python'da Flutter uygulamaları oluşturmanın en hızlı yolu Flet kütüphanes
 2. [Giriş / Takdim](2_giris.md)
 
 3. [Python Rehberi](3_python_rehberi.md)
+
+4. [Kullanıcı Girdisi](04_kullanici_girdisi.md)
+
+5. [Klavye Kısayolları](05_klavye_kisayollari.md)
