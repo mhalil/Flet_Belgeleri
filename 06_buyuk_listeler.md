@@ -98,7 +98,7 @@ Tarayıcı penceresini kaydırmayı ve yeniden boyutlandırmayı deneyin - her �
 > işleyerek alınabilecek bayt cinsinden WebSocket mesajının maksimum boyutudur. Varsayılan boyut 1 MB'dir, ancak 5.000 kapsayıcı denetimini 
 > açıklayan JSON mesajının boyutu 1 MB'ı aşacaktır, bu nedenle izin verilen boyutu 8 MB'a çıkarıyoruz.
 > 
-> Büyük mesajları WebSocket kanalı aracılığıyla sıkıştırmak genellikle iyi bir fikir değildir, bu nedenle kanal yükünü kontrol etmek için <a neme="#Toplu Güncellemeler (Batch updates)"> toplu güncellemeler (batched updates) </a>'i' kullanın.
+> Büyük mesajları WebSocket kanalı aracılığıyla sıkıştırmak genellikle iyi bir fikir değildir, bu nedenle kanal yükünü kontrol etmek için aşağıda alnlatılan **Toplu Güncellemeleri (Batch updates)** kullanın.
 
 GridView ListView'e benzer, birçok alt öğeyi işlemek için çok etkilidir. Yukarıdaki örneği GridView kullanarak uygulayalım:
 
