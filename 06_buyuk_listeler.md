@@ -1,7 +1,7 @@
 # Büyük listeler
 
-Çoğu  durumda listeleri görüntülemek için [Sütun (Column)](https://flet.dev/docs/controls/column) ve [Satır (Row)](https://flet.dev/docs/controls/row) kontrollerini 
-kullanabilirsiniz, ancak liste, yüzlerce veya binlerce öğe içeriyorsa **Sütun** ve **Satır**, verileri, uygulamanın mevcut ekranında (kaydırma konumunda) görünmese bile tüm öğeleri bir kerede oluşturdukları için, kullanıcı arabirimi, gecikmeli olarak tepkisiz kalacak yani etkisiz olacaktır. 
+Listeleri görüntülemek için çoğu durumda  [Sütun (Column)](https://flet.dev/docs/controls/column) ve [Satır (Row)](https://flet.dev/docs/controls/row) kontrollerini 
+kullanabilirsiniz. Ancak liste yüzlerce veya binlerce öğe içeriyorsa, **Sütun** ve **Satır** kullanmak pek mantıklı olmaz. Bunun sebebi, satır ve sütun kontrolü kullanıldığında, uygulama ekranında (kaydırma konumunda) görünmese bile tüm öğeler bir kerede oluşturulur. Dolayısı ile uygulama çalıştırıldığında veriler yükleninceye kadar kullanıcı arabirimi tepkisiz kalacak ve fare hareketleri gecikmeli olarak tepki verecektir. 
 
 Aşağıdaki örnekte, bir sayfaya 5.000 metin denetimi ekliyoruz. Sayfa, varsayılan düzen kapsayıcısı (container) olarak `Column (Sütun)`'u kullanır:
 
