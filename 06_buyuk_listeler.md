@@ -98,7 +98,7 @@ Tarayıcı penceresini kaydırmayı ve yeniden boyutlandırmayı deneyin - her �
 > işleyerek alınabilecek bayt cinsinden WebSocket mesajının maksimum boyutudur. Varsayılan boyut 1 MB'dir, ancak 5.000 kapsayıcı denetimini 
 > açıklayan JSON mesajının boyutu 1 MB'ı aşacaktır, bu nedenle izin verilen boyutu 8 MB'a çıkarıyoruz.
 > 
-> Büyük mesajları WebSocket kanalı aracılığıyla sıkıştırmak genellikle iyi bir fikir değildir, bu nedenle kanal yükünü kontrol etmek için aşağıda alnlatılan **Toplu Güncellemeleri (Batch updates)** kullanın.
+> Büyük mesajları WebSocket kanalı aracılığıyla sıkıştırmak genellikle iyi bir fikir değildir, bu nedenle kanal yükünü kontrol etmek için aşağıda alnlatılan **Toplu Güncelleme (Batch updates)** konusuna göz atın.
 
 GridView ListView'e benzer, birçok alt öğeyi işlemek için çok etkilidir. Yukarıdaki örneği GridView kullanarak uygulayalım:
 
@@ -134,7 +134,7 @@ GridView ile kaydırma ve pencere yeniden boyutlandırma sorunsuz ve duyarlı!
 `run_count` özelliği ile sabit sayıda satır veya sütun (çalışma) veya `max_extent` 
 özelliği ile bir "döşemenin" maksimum boyutunu belirleyebilirsiniz, böylece çalıştırma sayısı otomatik olarak değişebilir. Örneğimizde, maksimum karo boyutunu 150 piksele ayarladık ve şeklini `child_aspect_ratio=1` ile "kare" olarak ayarladık. `child_aspect_ratio`, çapraz eksenin, her alt öğenin ana eksen kapsamına oranıdır. Bu değeri `0,5` veya `2` olarak değiştirmeyi deneyin. (değeri `0.5` olarak ayarladığımızda dikey doğrultusa, `2` alarak ayarladığımızda ise yatay doğrultusa dikdörtgen elde ederiz.)
 
-# Toplu Güncellemeler (Batch updates)
+# Toplu Güncelleme (Batch updates)
 
 `page.update()` çağrıldığında, son `page.update()`'den bu yana sayfa güncellemelerini 
 içeren WebSockets üzerinden Flet sunucusuna bir mesaj gönderilmektedir. Binlerce
