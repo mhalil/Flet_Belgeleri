@@ -69,11 +69,11 @@ ft.app(target=main)
 > 
 > Bu kılavuzda daha sonra yeniden kullanılabilir **kontrollerle** uygulama yapısına gerçek dünya yaklaşımları yönünden bakacağımız için bu bölüm kasıtlı olarak **temel** olarak adlandırılmıştır.
 
-Tipik bir Flet programı, uygulamanın yeni kullanıcı oturumlarını beklemeye başladığı `flet.app()` çağrısıyla sona erer. `main()` fonksiyonu, bir Flet uygulamasındaki giriş noktasıdır. `Page (Sayfa)` örneğinin aktarıldığı her kullanıcı oturumu için yeni bir iş parçacığı çağrılıyor. Flet uygulamasını tarayıcıda çalıştırırken, açılan her sekme veya sayfa için yeni bir kullanıcı oturumu başlatılır. Bir masaüstü uygulaması olarak çalışırken oluşturulan yalnızca bir oturum vardır.
+Tipik bir Flet programı, uygulamanın yeni kullanıcı oturumlarını beklemeye başladığı `flet.app()` çağrısıyla sona erer. `main()` fonksiyonu, bir Flet uygulamasındaki giriş noktasıdır. `Page (Sayfa)` örneğinin aktarıldığı her kullanıcı oturumu için yeni bir iş parçacığı çağrılıyor. Flet uygulamasını tarayıcıda çalıştırırken, açılan her sekme veya sayfa için yeni bir kullanıcı oturumu başlatılır. Bir **masaüstü uygulaması** olarak çalışırken oluşturulan **yalnızca bir oturum vardır**.
 
-`Page (Sayfa)`, kullanıcıya özgü bir "**canvas (tuval)**" gibidir, kullanıcı oturumunun görsel halidir. Bir uygulama arabirimi oluşturmak için bir sayfaya (page) kontroller ekler ve kaldırırsınız, kontrollerin özelliklerini güncellersiniz. Yukarıdaki kod örneği, içerisine hiçbir kontrol eklenmediği için her kullanıcıya sadece boş bir sayfa (page) görüntüleyecektir.
+`Page (Sayfa)`, kullanıcıya özgü bir "**canvas (tuval)**" gibidir, kullanıcı oturumunun görsel halidir. Bir uygulama arabirimi oluşturmak için bir sayfaya (page) kontroller ekler ve kaldırırsınız, kontrollerin özelliklerini güncellersiniz. Yukarıdaki kod örneği, içerisine hiçbir **kontrol** eklenmediği için her kullanıcıya sadece boş bir sayfa (page) görüntüleyecektir.
 
-Flet uygulaması, varsayılan olarak, yerel işletim sistemine penceresinde başlar. Ancak, `flet.app` çağrısını aşağıdaki gibi değiştirerek onu yeni bir tarayıcı penceresinde açabilirsiniz:
+Flet uygulaması varsayılan olarak, yerel işletim sistemi penceresinde (uygulama/yazılım olarak) başlar. Ancak, `flet.app` çağrısını aşağıdaki gibi değiştirerek onu yeni bir **tarayıcı penceresinde** açabilirsiniz:
 
 ```python
 ft.app(target=main, view=ft.WEB_BROWSER)
