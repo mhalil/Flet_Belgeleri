@@ -37,3 +37,7 @@ mimari yok. **Flet** ile yalnızca **Python**'da tek parça durum bilgisi olan b
 ## Herhangi bir cihaza teslim edin
 
 Flet uygulamasını bir web uygulaması olarak dağıtın ve bir tarayıcıda görüntüleyin. Windows, macOS ve Linux için bağımsız bir masaüstü uygulaması olarak paketleyin. PWA olarak cep telefonunuza kurun veya iOS ve Android için Flet uygulaması aracılığıyla görüntüleyin.
+
+| Sonraki Bölüm               |
+| --------------------------- |
+| [02 Giris >>>](02_giris.md) |

@@ -40,3 +40,7 @@ ft.app(target=main)
 ![](https://flet.dev/img/docs/getting-started/keyboard-shortcuts.png)
 
 Burada [daha gelişmiş bir örnek](https://github.com/flet-dev/examples/blob/main/python/controls/page/keyboard-events.py) mevcut.
+
+| Önceki Bölüm                                                      | Sonraki Bölüm                                 |
+| ----------------------------------------------------------------- | --------------------------------------------- |
+| [<<< 04 Kullanicidan Girdi Almak](04_kullanicidan_girdi_almak.md) | [06 Büyük Listeler >>>](06_buyuk_listeler.md) |

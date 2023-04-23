@@ -346,3 +346,7 @@ ft.app(target=main)
 Artık `page.add()` içinde sayfanın yapısını ve oluşturduğu tüm kontrolleri açıkça görebiliriz.
 
 Evet, referansın (ref'in) kontrolüne erişmek için `.current.` eklemeniz gerektiğinden mantık biraz daha ayrıntılı hale geliyor, ancak bu kişisel tercih meselesi :)
+
+| Önceki Bölüm                | Sonraki Bölüm                                                     |
+| --------------------------- | ----------------------------------------------------------------- |
+| [<<< 02 Giris](02_giris.md) | [04 Kullanicidan Girdi Almak >>>](04_kullanicidan_girdi_almak.md) |

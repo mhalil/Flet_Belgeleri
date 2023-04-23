@@ -163,3 +163,9 @@ ft.app(target=main, view=ft.WEB_BROWSER)
 ```
 
 ![](https://flet.dev/img/docs/getting-started/sending-page-updates-in-batches.png)
+
+
+
+| Önceki Bölüm                                          | Sonraki Bölüm                                  |
+| ----------------------------------------------------- | ---------------------------------------------- |
+| [<<< 05 Klavye Kısayolları](05_klavye_kisayollari.md) | [07 Sürükle ve Bırak >>>](07_surukle_birak.md) |

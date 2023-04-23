@@ -135,3 +135,7 @@ ft.app(target=main)
 ```
 
 ![acilir_menu](https://flet.dev/img/docs/getting-started/getting-user-input-dropdown.png)
+
+| Önceki Bölüm                                  | Sonraki Bölüm                                         |
+| --------------------------------------------- | ----------------------------------------------------- |
+| [<<< 03 Python Rehberi](03_python_rehberi.md) | [05 Klavye Kısayolları >>>](05_klavye_kisayollari.md) |

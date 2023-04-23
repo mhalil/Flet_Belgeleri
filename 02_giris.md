@@ -74,3 +74,7 @@ ft.app(target=main, view=ft.WEB_BROWSER)
 Kodu tekrar çalıştırın ve şimdi anında bir web uygulamasına sahip olursunuz:
 
 ![](https://flet.dev/img/docs/getting-started/flet-counter-safari.png)
+
+| Önceki Bölüm                                      | Sonraki Bölüm                                 |
+| ------------------------------------------------- | --------------------------------------------- |
+| [<<< 01 Temel Özellikler](01_temel_ozellikler.md) | [03 Python Rehberi >>>](03_python_rehberi.md) |
