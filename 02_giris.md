@@ -1,8 +1,8 @@
 # Flet Nedir?
 
-Flet, front-end geliştirme deneyimi olmadan en sevdiğiniz dilde etkileşimli çok kullanıcılı web, masaüstü ve mobil uygulamalar oluşturmaya izin veren bir çerçevedir.  
+Flet, front-end geliştirme deneyimi olmadan, en sevdiğiniz programlama dilinde etkileşimli, çok kullanıcılı web, masaüstü ve mobil uygulamalar oluşturmaya izin veren bir çerçevedir.  
 
-Google'ın Flutter'ını temel alan Flet denetimleriyle programınız için bir kullanıcı arabirimi oluşturursunuz. Flet, Flutter widget'larını yalnızca "sarmalamakla" kalmaz, aynı zamanda daha küçük widget'ları birleştirerek, karmaşıklıkları gizleyerek, UI (kullanıcı arabirimi) en iyi uygulamalarını uygulayarak, makul varsayılanları uygulayarak kendi "görüşünü" ekler, tüm bunlar, uygulamalarınızın fazladan çaba harcamadan havalı ve profesyonel görünmesini sağlar.
+Google'ın Flutter'ını temel alan Flet denetimleriyle, programınız için bir kullanıcı arabirimi oluşturursunuz. Flet, Flutter widget'larını yalnızca "sarmalamakla" kalmaz, aynı zamanda daha küçük widget'ları birleştirerek, karmaşıklıkları gizleyerek, UI (kullanıcı arabirimi) en iyi uygulamalarını uygulayarak, makul varsayılanları uygulayarak kendi "görüşünü" ekler, tüm bunlar, uygulamalarınızın fazladan çaba harcamadan havalı ve profesyonel görünmesini sağlar.
 
 ## Flet uygulaması örneği
 

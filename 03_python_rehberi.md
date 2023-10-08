@@ -90,10 +90,10 @@ ft.app(target=main, view=ft.WEB_BROWSER)
 > 
 > Flet uygulamanızın web sürümünü görmek için tarayıcınızda `http://localhost:<port>` öğesini açın.
 
-# Kontroller
+# Kontroller (controls)
 
 Kullanıcı arayüzü, **Kontrollerden (Controls)** (widget olarak da bilinir) yapılmıştır. 
-Kontrollerin bir kullanıcı tarafından görülebilmesi için bir `Sayfaya (Page)` veya diğer kontrollerin içine eklenmesi gerekir. Page (Sayfa), en üstteki denetimdir. İç içe geçmiş denetimler, kök olarak Page (Sayfa) ile bir ağaç yapısı olarak temsil edilebilir.
+Kontrollerin bir kullanıcı tarafından görülebilmesi için bir `Sayfaya (Page)` veya diğer kontrollerin içine eklenmesi gerekir. **Page (Sayfa)**, en üstteki denetimdir. İç içe geçmiş denetimler, kök olarak Page (Sayfa) ile bir ağaç yapısı olarak temsil edilebilir.
 
 Kontroller, temelde normal Python sınıflarıdır. Özellikleriyle eşleşen parametreleri kullanarak, yapıcılar (constructors) aracılığıyla kontrol örnekleri oluşturulur. örneğin:
 
@@ -101,7 +101,7 @@ Kontroller, temelde normal Python sınıflarıdır. Özellikleriyle eşleşen pa
 t = ft.Text(value="Hello, world!", color="green")
 ```
 
-Bir sayfada kontrolü görüntülemek istiyorsanız, o kontrolü sayfanın `kontroller (controls)` listesine eklemeli ve sayfa değişikliklerini bir tarayıcıya veya masaüstü istemcisine göndermek / güncellemek için `page.update()` öğesini çağırmalısınız:
+Bir sayfada kontrolü görüntülemek istiyorsanız, o kontrolü sayfanın `kontroller (controls)` **listesine** eklemeli ve **sayfa değişikliklerini** bir tarayıcıya veya masaüstü istemcisine göndermek / güncellemek için `page.update()` öğesini çağırmalısınız:
 
 ```python
 import flet as ft
@@ -209,7 +209,7 @@ Her kontrolün (denetimin), Sayfa (Page) oluşturulurken, varsayılan değeri `t
 
 ### disabled (devre dışı / engelli) özelliği;
 
-Her kontrol (denetim), varsayılan olarak `false (yanlış)` değerini barındıran `disabled (devre dışı)` özelliğine sahiptir. Yani kontrol (denetim) ve tüm alt öğeleri etkindir. `disabled` özelliği çoğunlukla `TextField`, `Dropdown`, `Checkbox` ve butonlar gibi veri giriş kontrolleri ile kullanılır. Bununla birlikte, bir üst denetim (Parent Control) `disabled (devre dışı)` olarak ayarlanabilir ve değeri, yinelemeli olarak tüm çocuklara yayılır.
+Her kontrol (denetim), varsayılan olarak `false (yanlış)` değerini barındıran `disabled (devre dışı)` özelliğine sahiptir. Yani kontrol (denetim) ve tüm alt öğeleri etkindir. `disabled` özelliği çoğunlukla `TextField`, `Dropdown`, `Checkbox` ve butonlar gibi veri giriş kontrolleri ile kullanılır. Bununla birlikte, bir üst denetim (Parent Control) `disabled (devre dışı)` olarak ayarlanabilir ve değeri, yinelemeli olarak tüm alt kontrollere (çocuklara) yayılır / uygulanır.
 
 Örneğin, çoklu giriş kontrolüne sahip bir formunuz varsa, her kontrol için `disabled (devre dışı)` bırakılan özelliği ayrı ayrı ayarlayabilirsiniz:
 
@@ -234,7 +234,7 @@ c.disabled = True
 page.add(c)
 ```
 
-# Kontrol Referansları
+# Kontrol Referansları (Değişkenler)
 
 Flet kontrolleri nesnelerdir ve özelliklerine erişmek için bu nesnelere, referanslar (değişkenler) tutmamız gerekir.
 
@@ -268,9 +268,9 @@ ft.app(target=main)
 
 ![](https://flet.dev/img/docs/getting-started/control-refs.png)
 
-`main()` metodunun en başında, butonun `on_click` fonksiyonunda (işleyicisinde) kullanacağımız üç adet kontrol oluşturuyoruz. Bunlar ad (first name) ve soyad (lastname) için iki `TextField` kontrolü ile karşılama (greetings) mesajı için bir `Column (Sütun)` konteyneridir (container). Kontrolleri, tüm özellikleri ayarlanmış olarak oluşturuyoruz ve `main()` metodunun sonunda `page.add()` çağrısında bunların referanslarını kullanıyoruz.
+`main()` metodunun en başında, butonun `on_click` fonksiyonunda (işleyicisinde) kullanacağımız üç adet kontrol oluşturuyoruz. Bunlar **ad (first name)** ve **soyad (lastname)** için iki `TextField` kontrolü ile **karşılama (greetings)** mesajı için bir `Column (Sütun)` konteyneri (container) kullanılıyor. Kontrolleri, tüm özellikleri ayarlanmış olarak oluşturuyoruz ve `main()` metodunun sonundaki `page.add()` çağrısında, bunların referanslarını kullanıyoruz.
 
-Giderek daha fazla denetim ve olay işleyicisi eklendiğinde, tüm denetim tanımlarını tek bir yerde tutmak zorlaşır, bu nedenle `ana gövdeye (main)` dağılırlar. `page.add()` parametrelerine baktığınızda (IDE'deki değişken tanımlarına sürekli atlamadan) son formun nasıl görüneceğini hayal etmek zordur:
+Giderek daha fazla denetim ve olay işleyicisi eklendiğinde, tüm denetim tanımlarını (ad, soyad, karşılama,...vb) tek bir yerde tutmak zorlaşır, bu nedenle `ana gövdeye (main)` dağılırlar. `page.add()` parametrelerine bakarak (IDE'deki değişken tanımlarına sürekli bakıp tekrar geri dönmeden) formun nasıl görüneceğini hayal etmek zordur:
 
 ```python
     page.add(
@@ -281,24 +281,24 @@ Giderek daha fazla denetim ve olay işleyicisi eklendiğinde, tüm denetim tanı
     )
 ```
 
-`first_name` bir `TextField` mı, otomatik odaklanma ayarı var mı? Selamlaşma (greetings), Satır mı (`Row`) yoksa Sütun mu (`Column`)?
+Yani kapsamlı bir çalışma içerisinde, yukarıdaki kod parçasına bakarak `first_name` 'in bir `TextField` olup olmadığı, otomatik odaklanma ayarının varlığı ya da yokluğu, `greetings` (Karşılama) kontrolünün Satırı mı (`Row`) yoksa Sütunu mu (`Column`)? ifade ettiği gibi kontrollerin ne olduğuna dair doğru karar vermek zordur, doğru teşhis için kod sayfası içinde aşağı yukarı gezmemiz gerekir ki bu da bize vakit kaybettirir.
 
-**Flet**, kontrole bir referans tanımlamaya, bu referansı olay işleyicilerinde kullanmaya ve daha sonra bir ağaç (yapısı) oluştururken referansı gerçek bir kontrole ayarlamaya izin veren `Ref` yardımcı program sınıfı sağlar. Fikir [React](https://reactjs.org/docs/refs-and-the-dom.html)'tan geliyor.
+**Flet**, kontrole bir referans tanımlamaya, bu referansı olay işleyicilerinde kullanmaya ve daha sonra bir ağaç (yapısı) oluştururken referansı gerçek bir kontrole ayarlamaya izin veren `Ref` yardımcı sınıfı sağlar. Fikir [React](https://reactjs.org/docs/refs-and-the-dom.html)'tan gelmektedir.
 
-Yeni bir yazılı kontrol referansı tanımlamak için:
+Yeni yazılan bir kontrol referansını (Referanslı kontrol) tanımlamak için:
 
 ```python
 first_name = ft.Ref[ft.TextField]()
 ```
 
-Referanslı kontrole (kontrol referansı) erişmek için `Ref.current` özelliğini kullanın:
+Referanslı kontrole erişmek için `Ref.current` özelliğini kullanın:
 
 ```python
 # empty first name
 first_name.current.value = ""
 ```
 
-Bir referansa kontrol atamak için `Control.ref` özelliğini bir referans olarak ayarlayın:
+Kontrolü bir referansa atamak için `Control.ref` özelliğini bir referansa ayarlayın:
 
 ```python
 page.add(
@@ -310,7 +310,7 @@ page.add(
 > 
 > Tüm Flet kontrolleri `ref` özelliğine sahiptir.
 
-Referansları kullanmak için programımızı yeniden yazabiliriz:
+Referansları kullanacak şekilde programımızı yeniden yazabiliriz:
 
 ```python
 import flet as ft
@@ -343,9 +343,9 @@ ft.app(target=main)
 
 ![](https://flet.dev/img/docs/getting-started/control-refs-rewritten.png)
 
-Artık `page.add()` içinde sayfanın yapısını ve oluşturduğu tüm kontrolleri açıkça görebiliriz.
+Artık kodlarımızı incelerken `page.add()` içinde sayfanın yapısını ve oluşturduğu tüm kontrolleri açıkça görebiliriz.
 
-Evet, referansın (ref'in) kontrolüne erişmek için `.current.` eklemeniz gerektiğinden mantık biraz daha ayrıntılı hale geliyor, ancak bu kişisel tercih meselesi :)
+Evet, referanslı kontrolün özelliklerine erişmek için `.current.` ibaresinin eklenmesi gerektiğinden, mantık biraz daha ayrıntılı hale geliyor, ancak referanslı kontrol kullanma konusu, kişisel tercih meselesi :)
 
 | Önceki Bölüm                | Sonraki Bölüm                                                     |
 | --------------------------- | ----------------------------------------------------------------- |

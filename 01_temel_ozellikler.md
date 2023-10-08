@@ -5,7 +5,7 @@
 ## Dakikalar içinde fikirden uygulamaya
 
 Ekibiniz, hafta sonu projeniz, veri giriş formunuz, kiosk uygulamanız veya aslına
- uygun prototipiniz için dahili bir araç veya pano. **Flet**, bir grup kullanıcıya hizmet vermek üzere harika görünen etkileşimli uygulamaları hızla hacklemek (ustalıkla bilgisayar programları geliştirmek) için ideal bir çerçevedir.
+ uygun prototipiniz için dahili bir araç veya pano. **Flet**, bir grup kullanıcıya hizmet vermek üzere, harika görünen, etkileşimli uygulamaları hızla hacklemek (ustalıkla bilgisayar programları geliştirmek) için ideal bir çerçevedir.
 
 ![](https://flet.dev/img/pages/home/feature-house.svg) 
 
@@ -30,7 +30,7 @@ mimari yok. **Flet** ile yalnızca **Python**'da tek parça durum bilgisi olan b
 
 ## Senin dilini konuşuyor
 
-**Flet** dilden bağımsızdır, bu nedenle ekibinizdeki herkes kendi favori dillerinde Flet uygulamaları geliştirebilir. **Python** zaten destekleniyor, ardından **Go, C#** ve diğerleri geliyor.
+**Flet** dilden bağımsızdır, bu nedenle ekibinizdeki herkes kendi favori programama dilinde Flet uygulamaları geliştirebilir. **Python** zaten destekleniyor, ardından **Go, C#** ve diğerleri geliyor.
 
 ![](https://flet.dev/img/pages/home/feature-mobile.svg) 
 
