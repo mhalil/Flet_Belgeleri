@@ -67,7 +67,7 @@ ft.app(target=main)
 
 > **NOT:**
 > 
-> Bu kılavuzda daha sonra yeniden kullanılabilir **kontrollerle** uygulama yapısına gerçek dünya yaklaşımları yönünden bakacağımız için bu bölüm kasıtlı olarak **temel** olarak adlandırılmıştır.
+> Bu bölüm kasıtlı olarak "**temel**" olarak adlandırılmıştır, çünkü bu kılavuzun ilerleyen bölümlerinde yeniden kullanılabilir kontrollerle uygulama yapısına yönelik daha gerçekçi yaklaşımlara bakacağız.
 
 Tipik bir Flet programı, uygulamanın yeni kullanıcı oturumlarını beklemeye başladığı `flet.app()` çağrısıyla sona erer. `main()` fonksiyonu, bir Flet uygulamasındaki giriş noktasıdır. `Page (Sayfa)` örneğinin aktarıldığı her kullanıcı oturumu için yeni bir iş parçacığı çağrılıyor. Flet uygulamasını tarayıcıda çalıştırırken, açılan her sekme veya sayfa için yeni bir kullanıcı oturumu başlatılır. Bir **masaüstü uygulaması** olarak çalışırken oluşturulan **yalnızca bir oturum vardır**.
 
@@ -82,13 +82,13 @@ ft.app(target=main, view=ft.WEB_BROWSER)
 > **NOT**:
 > 
 > Dahili olarak, her Flet uygulaması bir web uygulamasıdır ve yerel bir işletim 
-> sistemi penceresinde açılsa bile yerleşik bir web sunucusu arka planda başlatılır. Flet web sunucusuna "**Fletd**" adı verilir ve varsayılan olarak rastgele bir **TCP** bağlantı noktasını dinler. Özel bir TCP bağlantı noktası belirtebilir ve ardından uygulamayı masaüstü görünümüyle birlikte tarayıcıda açabilirsiniz:
+> sistemi penceresinde açılsa bile yerleşik bir web sunucusu arka planda başlatılır. Flet web sunucusuna "**Fletd**" adı verilir ve varsayılan olarak rastgele bir **TCP** bağlantı noktasını dinler. Özel bir TCP bağlantı noktası belirtebilir ve ardından uygulamayı **masaüstü görünümüyle** birlikte tarayıcıda açabilirsiniz:
 > 
 > ```python
 > flet.app(port=8550, target=main)
 > ```
 > 
-> Flet uygulamanızın web sürümünü görmek için tarayıcınızda `http://localhost:<port>` öğesini açın.
+> Flet uygulamanızın **web sürümünü** görmek için tarayıcınızda `http://localhost:<port>` öğesini açın.
 
 # Kontroller (controls)
 
