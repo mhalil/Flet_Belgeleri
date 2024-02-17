@@ -1,9 +1,8 @@
 # Sürükle ve Bırak
 
-Flet'te sürükle ve bırak mekanizması oldukça basittir - bir kullanıcı [Sürüklenebilir](https://flet.dev/docs/controls/draggable) kontrolü sürüklemeye başlar ve onu [`DragTarget`](https://flet.dev/docs/controls/dragtarget)'a "bırakır". Hem sürüklenebilir öğe hem de sürüklenebilir hedef aynı `gruba (group)` sahipse, bir sürükleme hedefi `on_accept` olay işleyicisini çağırır ve sürüklenebilir kontrol kimliğini (ID) olay verisi olarak iletir. Bu durumda sürüklenebilir öğe, sürükle ve bırak işlemi için bir kaynak "veri" görevi görür.
+Flet'te sürükle ve bırak mekanizması oldukça basittir - bir kullanıcı [Sürüklenebilir (`Draggable`)](https://flet.dev/docs/controls/draggable) kontrolü sürüklemeye başlar ve onu [SürüklemeHedefi (`DragTarget`)](https://flet.dev/docs/controls/dragtarget)'ne "bırakır". Hem sürüklenebilir öğe hem de sürüklenebilir hedef aynı `gruba (group)` sahipse, bir sürükleme hedefi `on_accept` olay işleyicisini çağırır ve sürüklenebilir kontrol kimliğini (ID) olay verisi olarak iletir. Bu durumda sürüklenebilir öğe, sürükle ve bırak işlemi için bir kaynak "veri" görevi görür.
 
-Aşağıdaki örneğe bir göz atalım. Aşağıdaki programda "1" gösteren sol kontrolü 
-"0" gösteren sağ kontrolün üzerine sürükleyebilirsiniz ve sürükleme işlemi tamamlandığında sol kontrol "0" ile değiştirilir ve sağ kontrol "1" olur:
+Aşağıdaki örneğe bir göz atalım. Aşağıdaki programda "**1**" olarak gösterilen **sol** kontrolü , "**0**" olarak gösterilen **sağ** kontrolün üzerine sürükleyebilirsiniz ve sürükleme işlemi tamamlandığında **sol** kontrol "**0**" ile değiştirilir ve **sağ** kontrol "**1**" olur:
 
 ```python
 import flet as ft
@@ -54,18 +53,17 @@ def main(page: ft.Page):
 ft.app(target=main)
 ```
 
-![https://flet.dev/img/docs/getting-started/drag-and-drop-number.gif](https://flet.dev/img/docs/getting-started/drag-and-drop-number.gif)
+![drag-and-drop-number](https://flet.dev/img/docs/getting-started/drag-and-drop-number.gif)
 
-Bu nedenle, `on_accept` olayı gerçekleştiğinde "kaynak" (sürüklenebilir) ve "hedef" (sürüklenecek hedef) kontrollerine ne olacağını belirlemek geliştiricinin  sorumluluğundadır.
+Bu nedenle, `on_accept` olayı gerçekleştiğinde "**kaynak**" (sürüklenebilir) ve "**hedef**" (sürükleme hedefi) kontrollerine ne olacağını belirlemek geliştiricinin  sorumluluğundadır.
 
 > **Şunu Deneyin**:
 > 
-> Sürüklenecek hedefin (DragTarget) grup özelliğini `number 1 (sayı 1)` olarak değiştirin ve hedefe "1" düştüğünüzde artık `on_accept`'in çağrılmadığına dikkat edin.
+> Sürükleme hedefinin (DragTarget) grup özelliğini `number 1 (sayı 1)` olarak değiştirin ve hedefe "1" nesnesini sürükleyip bıraktığınızda, artık `on_accept`'in çağrılmadığına dikkat edin.
 
-Sürükle ve bırak işlemini daha etkileşimli hale getirmek için ek özellikler ve olay işleyicileri vardır. Örneğin sürüklenebilir (draggable) kontrolü, sürükleme işlemi devam ederken `content (içerik)` yerine farklı bir denetim görüntülemek için `content_When_dragging` özelliğine sahiptir. İşaretçi  altında farklı bir denetim göstermek için `content_feedback` özelliği de vardır. Varsayılan olarak, aynı `content (içerik)` kontrolü, ancak %50 opaklıkla sürüklenirken imlecin altında görüntülenir.
+Sürükle ve bırak işlemini daha etkileşimli hale getirmek için ek özellikler ve olay işleyicileri vardır. Örneğin sürüklenebilir kontrol (draggable) , sürükleme işlemi devam ederken `content (içerik)` yerine farklı bir denetim görüntülemek için `content_When_dragging` özelliğine sahiptir. İşaretçi  altında farklı bir denetim göstermek için `content_feedback` özelliği de vardır. Varsayılan olarak, aynı `content (içerik)` kontrolü, ancak %50 opaklıkla sürüklenirken imlecin altında görüntülenir.
 
-Sürüklenen kontrolün yerine bir "boşluk" ve sürüklerken imlecin altında sadece "1" 
-gösterecek şekilde örneğimizde Draggable'ı değiştirelim:
+Sürüklenen kontrolün yerine bir "**boşluk**" ve sürükleme esnasında imlecin altında sadece "**1**" ifadesi gösterecek şekilde örneğimizde Draggable'ı değiştirelim:
 
 ```python
 ...
@@ -90,7 +88,7 @@ gösterecek şekilde örneğimizde Draggable'ı değiştirelim:
 ...
 ```
 
-![](https://flet.dev/img/docs/getting-started/drag-and-drop-number-2.gif)
+![drag-and-drop-number-2](https://flet.dev/img/docs/getting-started/drag-and-drop-number-2.gif)
 
 Sürükleme hedefi denetimi ayrıca, hedefe bir şey "bırakmak" için iyi bir zaman 
 geldiğinde daha iyi görselleştirmeye yardımcı olan `on_will_accept` ve `on_leave` olay işleyicilerine sahiptir. Gelen sürüklemeyi kabul etmeye hazır olduğunda, hedef kontrolün etrafına bir sınır çizmek için örneğimizde DragTarget'ı değiştirelim:
@@ -168,7 +166,8 @@ def main(page: ft.Page):
 ft.app(target=main)
 ```
 
-![](https://flet.dev/img/docs/getting-started/drag-and-drop-number-3.gif)
+![drag-and-drop-number-3](https://flet.dev/img/docs/getting-started/drag-and-drop-number-3.gif)
+
 
 | Önceki Bölüm                                  | Sonraki Bölüm                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------- |
